@@ -2,8 +2,11 @@
 
 Blog for Everyone is a user-friendly command-line interface (CLI) application that allows Blog readers to efficiently manage authors, blogs and readers.
 
-Installation
+# Installation
+
+###
 To install and run Blogs for Everyone, ensure that you have Python 3 and pip installed on your system.
+###
 
 #1. Clone this repository to your local machine and navigate to its directory.
 #2. Run pipenv install to install all the necessary package dependencies.
