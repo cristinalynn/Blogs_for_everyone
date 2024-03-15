@@ -45,9 +45,6 @@ Reader Management (Main Menu Option 3)
 3. List Readers
 4. Go Back
 
-## Visual
-[Visual of CLI and Database](https://imgur.com/a/RBSG6Mu)
-
 ## Resources
 
 - [SQLite](https://sqlite.org/index.html)
