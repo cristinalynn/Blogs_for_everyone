@@ -4,7 +4,7 @@ from faker import Faker
 from models import Author, Blog, Reader
 
 #Creates the engine
-engine = create_engine('sqlite://info.db')
+engine = create_engine('sqlite:///info.db')
 
 #Creates a session
 Session = sessionmaker(bind=engine)
@@ -33,7 +33,7 @@ def seed_data():
 
     # Readers
     for _ in range(10):
-        reader = Reader(name=faker.name(), year_joined=faker.year())
+        reader = Reader(name=faker.name())
         session.add(reader)
     session.commit()
     print("Number of readers inserted:", session.query(Reader).count())
