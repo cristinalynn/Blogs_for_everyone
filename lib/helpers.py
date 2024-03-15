@@ -49,7 +49,7 @@ class Library:
     def get_all_blogs(self):
         return session.query(Blog).all()
 
-    def get_all_reader(self):
+    def get_all_readers(self):
         return session.query(Reader).all()
     
     # Find By...
@@ -59,7 +59,7 @@ class Library:
     def find_blog_by_title(self, title):
         return session.query(Blog).filter_by(title=title).first()
     
-    def find_blog_by_id(self, book_id):
+    def find_blog_by_id(self, blog_id):
         blog = session.query(Blog).filter_by(id=blog_id).first()
         return blog
 
