@@ -15,27 +15,39 @@ faker = Faker()
 
 #Create instances of classes here...
 def seed_data():
+    authors=session.query(Author).all()
+    for author in authors:
+        session.delete(author)
+
+    blogs=session.query(Blog).all()
+    for blog in blogs:
+        session.delete(blog) 
+
+    readers=session.query(Reader).all()
+    for reader in readers:
+        session.delete(reader)       
+
 
     # Authors
-    for _ in range(5):
+    for i in range(5):
         author = Author(name=faker.name())
         session.add(author)
-    session.commit()
+        session.commit()
     print("Number of authors inserted:", session.query(Author).count())
 
     # Blogs
     authors = session.query(Author).all()
-    for _ in range(10):
+    for i in range(10):
         blog = Blog(title=faker.catch_phrase(), author=faker.random_element(authors))
         session.add(blog)
-    session.commit()
+        session.commit()
     print("Number of blogs inserted:", session.query(Blog).count())
 
     # Readers
-    for _ in range(10):
+    for i in range(10):
         reader = Reader(name=faker.name())
         session.add(reader)
-    session.commit()
+        session.commit()
     print("Number of readers inserted:", session.query(Reader).count())
 
 if __name__ == "__main__":
