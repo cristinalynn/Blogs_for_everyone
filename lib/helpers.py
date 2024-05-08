@@ -12,11 +12,21 @@ class Library:
         author = Author(name=name)
         session.add(author)
         session.commit()
+        return author
 
-    def create_book(self, title, author_id):
+    def create_blog(self, title, author_id):
         blog = Blog(title=title, author_id=author_id)
         session.add(blog)
         session.commit()
+        author = session.query(Author).get(author_id)
+        if not author:
+            print("Author not found.")
+
+        if not author.blogs:
+            author.blog.append(blog)
+            session.commit()
+
+        return blog
 
     def create_reader(self, name):
         reader = Reader(name=name)
@@ -65,3 +75,5 @@ class Library:
 
     def find_reader_by_name(self, name):
         return session.query(Reader).filter_by(name=name).first()
+    
+    
